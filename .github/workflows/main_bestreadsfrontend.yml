@@ -20,11 +20,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
+          persist-credentials: false
 
       - name: npm install, build, and test
         run: |
-          npm install ./bestreads/package.json
-          npm run build ./bestreads/package.json --if-present
+          npm install package.json
+          npm run build --if-present
           npm run test --if-present
       
       - name: Upload artifact for deployment job
